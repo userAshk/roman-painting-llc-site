@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roman Painting LLC – Residential Painting in Issaquah, WA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    a { color: inherit; }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+    .card {
+      max-width: 900px;
+      width: 100%;
+      background: #020617;
+      border-radius: 24px;
+      padding: 32px 24px;
+      border: 1px solid #1f2937;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 30px;
+    }
+    h2 {
+      margin: 0 0 20px;
+      font-weight: 500;
+      color: #9ca3af;
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: flex-start;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #111827;
+      border: 1px solid #374151;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+    ul li { margin-bottom: 6px; }
+    .contact-line {
+      font-size: 14px;
+      margin-top: 6px;
+      color: #9ca3af;
+    }
+    .contact-line a {
+      text-decoration: none;
+      color: #38bdf8;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #020617;
+      border-radius: 16px;
+      padding: 18px 16px;
+      border: 1px solid #1f2937;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid #4b5563;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 14px;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #38bdf8;
+    }
+    button {
+      margin-top: 6px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #38bdf8;
+      color: #020617;
+    }
+    button:hover { filter: brightness(1.05); }
+    .note {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+    @media (max-width: 780px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 24px 18px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <span class="badge">Roman Painting LLC · Issaquah, WA</span>
+      <div class="grid">
+        <div>
+          <h1>Premium residential painting in Issaquah & nearby areas</h1>
+          <h2>Interior & exterior painting that makes your home look brand new – with clean crews, clear communication, and on-time completion.</h2>
+
+          <div class="pill-row">
+            <span class="pill">Issaquah · Sammamish · Bellevue · Renton</span>
+            <span class="pill">Licensed & insured</span>
+            <span class="pill">5.0 ★ on Google</span>
+          </div>
+
+          <ul>
+            <li>• Interior walls, ceilings, trim, cabinets</li>
+            <li>• Exterior repaints & touch-ups</li>
+            <li>• Color consultations and samples</li>
+            <li>• Respectful crew, full cleanup after the job</li>
+          </ul>
+
+          <div class="contact-line">
+            Prefer to call? <a href="tel:+12532137622">(253) 213-7622</a>
+          </div>
+        </div>
+
+        <div>
+          <form action="https://ashyrbai.app.n8n.cloud/webhook/Roman-Painting-LLC" method="POST">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="Best number to reach you" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="project">What do you need painted?</label>
+              <textarea id="project" name="project" rows="3"
+                placeholder="Interior / exterior? Rooms or sqft? Timing?"
+                required></textarea>
+            </div>
+            <div>
+              <label for="city">City</label>
+              <select id="city" name="city">
+                <option value="">Select city</option>
+                <option value="Issaquah">Issaquah</option>
+                <option value="Sammamish">Sammamish</option>
+                <option value="Bellevue">Bellevue</option>
+                <option value="Renton">Renton</option>
+                <option value="Other">Other nearby area</option>
+              </select>
+            </div>
+            <button type="submit">Request a free estimate</button>
+            <div class="note">
+              By submitting, you agree to be contacted about your painting project. We usually respond the same business day.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

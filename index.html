@@ -2,209 +2,821 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roman Painting LLC – Residential Painting in Issaquah, WA</title>
+  <title>Roman Painting LLC – Residential Painting in Issaquah & Nearby Areas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Roman Painting LLC – premium interior & exterior residential painting in Issaquah, Sammamish, Bellevue & nearby areas. Clean crews, clear communication, and on-time completion." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+    :root {
+      --bg: #050816;
+      --bg-elevated: #090f1f;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59,130,246,0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: rgba(148,163,184,0.35);
+      --danger: #ef4444;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(15,23,42,0.7);
     }
-    a { color: inherit; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .page {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 16px 72px;
+    }
+
+    /* Header */
+
+    header {
+      padding: 12px 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 0, #facc15 0, #f97316 30%, #ef4444 65%, #0f172a 100%);
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 16px;
+      color: #0b1120;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.7);
     }
-    .card {
-      max-width: 900px;
-      width: 100%;
-      background: #020617;
-      border-radius: 24px;
-      padding: 32px 24px;
-      border: 1px solid #1f2937;
-      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid #4b5563;
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-sub {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #9ca3af;
-      margin-bottom: 16px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
     }
-    h1 {
-      margin: 0 0 12px;
-      font-size: 30px;
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-    h2 {
-      margin: 0 0 20px;
-      font-weight: 500;
-      color: #9ca3af;
-      font-size: 18px;
+
+    .nav-badge {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15,23,42,0.7);
     }
-    .grid {
+
+    .nav-phone {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 13px;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15,23,42,0.9);
+    }
+
+    .nav-phone span {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* Layout */
+
+    .hero {
       display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 28px;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       align-items: flex-start;
     }
-    .pill-row {
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Left column */
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(55,65,81,0.9);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .eyebrow-text {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      color: #60a5fa;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 18px;
-      font-size: 12px;
-      color: #9ca3af;
     }
-    .pill {
-      padding: 4px 10px;
+
+    .tag {
+      font-size: 11px;
+      padding: 5px 10px;
       border-radius: 999px;
-      background: #111827;
-      border: 1px solid #374151;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+      background: rgba(15,23,42,0.8);
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px;
-      font-size: 14px;
-      color: #d1d5db;
+
+    .hero-highlight {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 22px;
     }
-    ul li { margin-bottom: 6px; }
-    .contact-line {
-      font-size: 14px;
-      margin-top: 6px;
-      color: #9ca3af;
+
+    .hero-highlight-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34,197,94,0.18);
     }
-    .contact-line a {
-      text-decoration: none;
-      color: #38bdf8;
+
+    .hero-photo {
+      margin-top: 12px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at top, #1f2937 0, #020617 70%);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-photo-inner {
+      height: 180px;
+      border-radius: 14px;
+      background-image:
+        linear-gradient(135deg, rgba(56,189,248,0.2), rgba(59,130,246,0.1)),
+        url("https://images.pexels.com/photos/6474472/pexels-photo-6474472.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-photo-caption {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-photo-caption strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Form */
+
+    .form-card {
+      background: rgba(15,23,42,0.96);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(55,65,81,0.95);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-header {
+      margin-bottom: 14px;
+    }
+
+    .form-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      font-size: 12px;
+      color: var(--muted);
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background: #020617;
-      border-radius: 16px;
-      padding: 18px 16px;
-      border: 1px solid #1f2937;
     }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     label {
-      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    input, select, textarea {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.9);
+      color: var(--text);
+      padding: 10px 13px;
       font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 9px 11px;
-      border-radius: 10px;
-      border: 1px solid #4b5563;
-      background: #020617;
-      color: #e5e7eb;
-      font-size: 14px;
       outline: none;
+      width: 100%;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
-    input:focus, textarea:focus, select:focus {
-      border-color: #38bdf8;
+
+    textarea {
+      border-radius: 14px;
+      min-height: 84px;
+      resize: vertical;
     }
-    button {
-      margin-top: 6px;
-      padding: 11px 16px;
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(37,99,235,0.7);
+      background: rgba(15,23,42,0.95);
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "▾";
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: #9ca3af;
+      pointer-events: none;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-right: 26px;
+    }
+
+    .button-primary {
+      margin-top: 4px;
+      padding: 11px 14px;
       border-radius: 999px;
       border: none;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
       cursor: pointer;
-      background: #38bdf8;
-      color: #020617;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 16px 35px rgba(37,99,235,0.55);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s;
     }
-    button:hover { filter: brightness(1.05); }
-    .note {
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37,99,235,0.7);
+    }
+
+    .button-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 24px rgba(37,99,235,0.7);
+    }
+
+    .button-primary span.icon {
+      font-size: 16px;
+    }
+
+    .form-footnote {
+      margin-top: 8px;
       font-size: 11px;
-      color: #6b7280;
-      margin-top: 4px;
+      color: var(--muted);
     }
-    @media (max-width: 780px) {
-      .grid { grid-template-columns: 1fr; }
-      .card { padding: 24px 18px; }
-      h1 { font-size: 24px; }
+
+    /* Sections */
+
+    section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(55,65,81,0.9);
+      background: radial-gradient(circle at top left, rgba(37,99,235,0.15), rgba(15,23,42,0.98));
+      padding: 14px 14px 13px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .process-step {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.96);
+      padding: 13px 13px 12px;
+    }
+
+    .process-step-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .process-step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .process-step-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(31,41,55,1);
+      padding: 18px 0 26px;
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-phone {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .footer-areas {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .text-accent {
+      color: #60a5fa;
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <div class="card">
-      <span class="badge">Roman Painting LLC · Issaquah, WA</span>
-      <div class="grid">
-        <div>
-          <h1>Premium residential painting in Issaquah & nearby areas</h1>
-          <h2>Interior & exterior painting that makes your home look brand new – with clean crews, clear communication, and on-time completion.</h2>
+    <div class="wrapper">
+      <header>
+        <nav class="nav">
+          <div class="brand">
+            <div class="brand-logo">R</div>
+            <div class="brand-text">
+              <div class="brand-name">Roman Painting LLC</div>
+              <div class="brand-sub">Issaquah & nearby areas</div>
+            </div>
+          </div>
+          <div class="nav-right">
+            <div class="nav-badge">
+              ⭐ 5.0 on Google · 25+ homeowner reviews
+            </div>
+            <a class="nav-phone" href="tel:+12532137622">
+              <span>Call</span> (253) 213-7622
+            </a>
+          </div>
+        </nav>
+      </header>
 
+      <main>
+        <section class="hero">
+          <!-- Left column -->
+          <div>
+            <div class="eyebrow">
+              <div class="eyebrow-rating">
+                ⭐ 5.0 rating
+              </div>
+              <div class="eyebrow-text">
+                Trusted residential painting for Eastside homeowners
+              </div>
+            </div>
+
+            <h1 class="hero-title">
+              Premium residential painting in
+              <span>Issaquah & nearby areas</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Interior & exterior repainting that makes your home feel brand-new again —
+              with clean crews, clear communication, and reliable on-time completion.
+            </p>
+
+            <div class="hero-tags">
+              <div class="tag">Interior walls, ceilings & trim</div>
+              <div class="tag">Exterior repaints & touch-ups</div>
+              <div class="tag">Color consultations</div>
+              <div class="tag">Licensed & insured</div>
+            </div>
+
+            <div class="hero-highlight">
+              <div class="hero-highlight-dot"></div>
+              <div>
+                Same-day call back for new estimate requests submitted before 4 PM.
+              </div>
+            </div>
+
+            <div class="hero-photo">
+              <div class="hero-photo-inner"></div>
+              <div class="hero-photo-caption">
+                <span><strong>Freshly painted home in Issaquah</strong></span>
+                <span class="text-accent">Roman Painting LLC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form column -->
+          <div>
+            <div class="form-card" id="estimate">
+              <div class="form-header">
+                <div class="form-title">Request a free estimate</div>
+                <div class="form-subtitle">
+                  Share a few details about your project and we’ll get back to you the same business day.
+                </div>
+              </div>
+
+              <form action="https://ashyrbai.app.n8n.cloud/webhook/Roman-Painting-LLC" method="POST">
+                <div class="field">
+                  <label for="name">Full name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="Best number to reach you" required />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                </div>
+
+                <div class="field">
+                  <label for="city">City</label>
+                  <div class="select-wrapper">
+                    <select id="city" name="city" required>
+                      <option value="" disabled selected>Select city</option>
+                      <option>Issaquah</option>
+                      <option>Sammamish</option>
+                      <option>Bellevue</option>
+                      <option>Renton</option>
+                      <option>Newcastle</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="project">Tell us about your project</label>
+                  <textarea id="project" name="project"
+                            placeholder="Interior / exterior? Rooms or square footage? Timing?"></textarea>
+                </div>
+
+                <button class="button-primary" type="submit">
+                  <span>Request a free estimate</span>
+                  <span class="icon">→</span>
+                </button>
+
+                <p class="form-footnote">
+                  By submitting, you agree to be contacted about your painting project.
+                  We usually respond the same business day.
+                </p>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Painting services -->
+        <section>
+          <h2 class="section-title">Painting services</h2>
+          <p class="section-subtitle">
+            We focus on residential repaint projects — from single rooms to full interior & exterior repaints.
+          </p>
+
+          <div class="cards-grid">
+            <div class="card">
+              <div class="card-title">Interior repainting</div>
+              <p class="card-text">
+                Walls, ceilings, trim and doors. Careful prep, straight lines and clean job sites so your
+                home looks new again without the mess.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Exterior repaint & touch-ups</div>
+              <p class="card-text">
+                Full exterior repaints, trims, doors and small repairs to keep your home protected and
+                looking sharp in our Pacific Northwest weather.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Color consultations</div>
+              <p class="card-text">
+                Need help picking colors that fit your home, light and neighborhood? We’ll bring samples and
+                give practical recommendations.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Repairs & drywall patching</div>
+              <p class="card-text">
+                Minor drywall repairs, caulking and surface prep so the final finish looks smooth and even —
+                not like a quick cover-up.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Process -->
+        <section>
+          <h2 class="section-title">How our process works</h2>
+          <p class="section-subtitle">
+            Clear steps, no surprises. You always know what’s happening next.
+          </p>
+
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="process-step-label">Step 1</div>
+              <div class="process-step-title">Estimate & walkthrough</div>
+              <p class="process-step-text">
+                We discuss your project, measure the space and send a clear written estimate so you know
+                exactly what’s included.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step-label">Step 2</div>
+              <div class="process-step-title">Scheduling</div>
+              <p class="process-step-text">
+                We lock in dates that work for you and confirm colors, finishes and scope before we start.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step-label">Step 3</div>
+              <div class="process-step-title">Prep & protection</div>
+              <p class="process-step-text">
+                Furniture and floors are covered, surfaces are prepped and gaps are caulked for a long-lasting finish.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="process-step-label">Step 4</div>
+              <div class="process-step-title">Painting & cleanup</div>
+              <p class="process-step-text">
+                We apply premium paints, keep the site tidy during the job and clean thoroughly at the end —
+                so you’re ready to enjoy your space.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Service area -->
+        <section>
+          <h2 class="section-title">Service area</h2>
+          <p class="section-subtitle">
+            Based in Issaquah, we serve Eastside communities. If you’re nearby and not sure, just reach out and ask.
+          </p>
           <div class="pill-row">
-            <span class="pill">Issaquah · Sammamish · Bellevue · Renton</span>
-            <span class="pill">Licensed & insured</span>
-            <span class="pill">5.0 ★ on Google</span>
+            <div class="pill">Issaquah</div>
+            <div class="pill">Sammamish</div>
+            <div class="pill">Bellevue</div>
+            <div class="pill">Renton</div>
+            <div class="pill">Newcastle</div>
+            <div class="pill">Surrounding neighborhoods</div>
           </div>
+        </section>
+      </main>
 
-          <ul>
-            <li>• Interior walls, ceilings, trim, cabinets</li>
-            <li>• Exterior repaints & touch-ups</li>
-            <li>• Color consultations and samples</li>
-            <li>• Respectful crew, full cleanup after the job</li>
-          </ul>
-
-          <div class="contact-line">
-            Prefer to call? <a href="tel:+12532137622">(253) 213-7622</a>
+      <footer>
+        <div class="footer-top">
+          <div>Roman Painting LLC</div>
+          <div class="footer-phone">
+            Call or text: <a href="tel:+12532137622"> (253) 213-7622</a>
           </div>
         </div>
-
-        <div>
-          <form action="https://ashyrbai.app.n8n.cloud/webhook/Roman-Painting-LLC" method="POST">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="Best number to reach you" required />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
-            <div>
-              <label for="project">What do you need painted?</label>
-              <textarea id="project" name="project" rows="3"
-                placeholder="Interior / exterior? Rooms or sqft? Timing?"
-                required></textarea>
-            </div>
-            <div>
-              <label for="city">City</label>
-              <select id="city" name="city">
-                <option value="">Select city</option>
-                <option value="Issaquah">Issaquah</option>
-                <option value="Sammamish">Sammamish</option>
-                <option value="Bellevue">Bellevue</option>
-                <option value="Renton">Renton</option>
-                <option value="Other">Other nearby area</option>
-              </select>
-            </div>
-            <button type="submit">Request a free estimate</button>
-            <div class="note">
-              By submitting, you agree to be contacted about your painting project. We usually respond the same business day.
-            </div>
-          </form>
+        <div class="footer-bottom">
+          <div class="footer-areas">
+            Serving Issaquah, Sammamish, Bellevue, Renton & nearby areas.
+          </div>
+          <div>Licensed & insured · 5.0 ⭐ Google rating</div>
         </div>
-      </div>
+      </footer>
     </div>
   </div>
 </body>
